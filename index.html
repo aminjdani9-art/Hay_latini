@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الحي اللاتيني - تلخيص</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{min-height:100vh;background:linear-gradient(135deg,#0f0c29,#302b63,#8B1E3F,#C7372F);font-family:'Amiri',serif;display:flex;justify-content:center;padding:20px}
+.container{width:100%;max-width:800px;text-align:center}
+.page{display:none}.page.active{display:block;animation:fade.6s ease}
+@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.welcome-box{background:rgba(255,255,255,.15);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.3);border-radius:22px;padding:60px 30px;margin-top:12vh;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.welcome-box h1{font-family:'Reem Kufi',sans-serif;font-size:2.7em;color:#ffe4ec;line-height:1.4;min-height:120px}
+.welcome-box p{color:#e9d8ff;font-size:1.3em;margin:20px 0 35px}
+.btn{background:#ffe4ec;color:#5a1a2e;padding:14px 35px;border-radius:30px;border:none;font-family:'Reem Kufi',sans-serif;font-size:1.3em;font-weight:700;cursor:pointer;transition:.3s;box-shadow:0 10px 25px rgba(0,0,0,.3);margin:6px}
+.btn:hover{transform:scale(1.05);background:white}
+.btn.small{background:rgba(255,255,255,.15);color:#ffe4ec;border:1px solid rgba(255,255,255,.3)}
+.parchment{width:100%;background:#fdf6e3;border-radius:12px;box-shadow:0 0 0 1px #d4c5a0,0 0 0 5px #fdf6e3,0 25px 50px rgba(0,0,0,.7);padding:70px 40px;position:relative;text-align:right}
+.parchment::before,.parchment::after{content:'';position:absolute;left:-8px;right:-8px;height:28px;background:linear-gradient(to bottom,#e8d5a3,#c9b07a);border-radius:16px}
+.parchment::before{top:-14px}.parchment::after{bottom:-14px}
+.parchment h2{font-family:'Reem Kufi',sans-serif;color:#5a1a2e;text-align:center;margin-bottom:18px;border-bottom:2px dashed #c9a86a;padding-bottom:10px}
+.parchment p{color:#3e2f1c;font-size:1.2em;line-height:2.2;white-space:pre-wrap;font-weight:700;min-height:150px}
+.nav{margin-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+#cur{display:inline-block;width:3px;height:1.1em;background:#8B1E3F;animation:blink.8s infinite}
+@keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div id="p1" class="page active">
+<div class="welcome-box">
+<h1 id="h1"></h1>
+<p id="h2"></p>
+<button class="btn" id="b1" style="display:none" onclick="showPage(2)">دخول إلى التلخيص</button>
+</div>
+</div>
+
+<div id="p2" class="page">
+<div class="parchment"><h2>1- مقدمة عن الرواية</h2><p id="t2"></p><span id="c2"></span></div>
+<div class="nav"><button class="btn small" onclick="showPage(1)">رجوع</button><button class="btn" onclick="showPage(3)">الشخصيات الرئيسية</button></div>
+</div>
+
+<div id="p3" class="page">
+<div class="parchment"><h2>2- الشخصيات الرئيسية</h2><p id="t3"></p><span id="c3"></span></div>
+<div class="nav"><button class="btn small" onclick="showPage(2)">رجوع</button><button class="btn" onclick="showPage(4)">ملخص الأحداث</button></div>
+</div>
+
+<div id="p4" class="page">
+<div class="parchment"><h2>3- ملخص الأحداث</h2><p id="t4"></p><span id="c4"></span></div>
+<div class="nav"><button class="btn small" onclick="showPage(3)">رجوع</button><button class="btn" onclick="showPage(5)">الوصف المادي للحي اللاتيني</button></div>
+</div>
+
+<div id="p5" class="page">
+<div class="parchment"><h2>4- الوصف المادي للحي</h2><p id="t5"></p><span id="c5"></span></div>
+<div class="nav"><button class="btn small" onclick="showPage(4)">رجوع</button><button class="btn" onclick="showPage(6)">الوصف المعنوي للحي</button></div>
+</div>
+
+<div id="p6" class="page">
+<div class="parchment"><h2>5- الوصف المعنوي للحي</h2><p id="t6"></p><span id="c6"></span></div>
+<div class="nav"><button class="btn small" onclick="showPage(5)">رجوع</button><button class="btn" onclick="showPage(7)">التحول والرسالة</button></div>
+</div>
+
+<div id="p7" class="page">
+<div class="parchment"><h2>6- التحول والنهاية والرسالة</h2><p id="t7"></p><span id="c7"></span></div>
+<div class="nav"><button class="btn small" onclick="showPage(6)">رجوع</button><button class="btn" onclick="showPage(1)">الرجوع للترحيب</button></div>
+</div>
+
+</div>
+<script>
+const texts={
+h1:"أهلاً وسهلاً بأستاذي الكريم وزملائي الأعزاء",
+h2:"أقدم لكم اليوم تلخيصي لرواية الحي اللاتيني",
+t2:`رواية "الحي اللاتيني" للكاتب اللبناني سهيل إدريس صدرت سنة 1953.
+تعتبر من أهم الروايات العربية التي عالجت موضوع الصراع بين الشرق والغرب.
+هي رواية سيرة ذاتية واقعية تحكي قصة شاب عربي يذهب للدراسة في باريس ويصطدم بحضارة مختلفة تماما.`,
+t3:`1- سامي: هو البطل والراوي، شاب لبناني من بيروت، محافظ ومتدين في البداية، يمثل الشاب العربي التقليدي.
+
+2- جانين: فتاة فرنسية طالبة في السوربون، جميلة ومثقفة ومتحررة، تمثل الغرب بكل حريته وتناقضاته، وهي حب سامي الأول.
+
+3- أصدقاء الحي: مجموعة من الطلبة العرب والأجانب الذين يعيشون نفس التمزق.`,
+t4:`يسافر سامي من بيروت إلى باريس لإكمال دراسته العليا في السوربون ويسكن في الحي اللاتيني.
+في البداية يصاب بصدمة حضارية قوية: اختلاط الجنسين في الجامعة والمقاهي، حرية العلاقات، النقاش المفتوح في الدين والجنس بدون خوف.
+يتعرف على جانين في الجامعة ويقع في حبها، وتتطور علاقتهما إلى حب عميق وجسدي، وهنا يبدأ صراعه الداخلي الكبير.`,
+t5:`الحي اللاتيني ماديا هو حي قديم جدا في الضفة اليسرى لنهر السين حول جامعة السوربون.
+أزقة ضيقة، مباني حجرية عتيقة، مكتبات قديمة تبيع الكتب المستعملة على الأرصفة.
+مقاهي أدبية تاريخية يجلس فيها الطلبة ليل نهار يناقشون الفلسفة والأدب.
+حي فقير بوهيمي تفوح منه رائحة القهوة والتبغ والورق القديم، وباعة الكتب على ضفاف السين.`,
+t6:`معنويا الحي اللاتيني ليس مجرد مكان، بل هو جامعة ثانية ورمز للحرية الفكرية المطلقة.
+إنه المكان الذي يتعلم فيه الطالب كيف يشك، كيف يحب، كيف يفكر بدون قيود.
+قال عنه الكاتب: "إنه حي يفكر دائما، ويحب دائما، ويشك دائما - حي لا ينام".
+هو المكان الذي يتحطم فيه الشرق القديم ويولد فيه إنسان جديد متحرر.`,
+t7:`يتحول سامي من شاب محافظ يصلي ويخاف من المرأة إلى شاب متحرر يدافع عن حرية المرأة.
+يبدأ يقرأ لفرويد وسارتر ويناقش مواضيع كانت محرمة.
+في النهاية يفترق عن جانين ويعود إلى لبنان وهو شخص آخر، يحمل فكرين في رأس واحد.
+
+الرسالة: النهضة العربية الحقيقية لن تكون إلا بالانفتاح على الفكر الغربي الحر مع الحفاظ على أصالتنا.`
+};
+
+function type(elId,txt,sp,curId){
+  return new Promise(res=>{
+    const el=document.getElementById(elId);
+    const cur=document.getElementById(curId);
+    let i=0; el.textContent='';
+    if(cur) cur.id='cur';
+    (function l(){
+      if(i<txt.length){
+        el.textContent+=txt[i++];
+        if(cur) cur.scrollIntoView({behavior:'auto',block:'end'});
+        setTimeout(l,sp);
+      } else {
+        if(cur) cur.style.display='none';
+        res();
+      }
+    })();
+  });
+}
+
+async function showPage(n){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('p'+n).classList.add('active');
+  window.scrollTo({top:0,behavior:'auto'});
+  const map={2:['t2','c2'],3:['t3','c3'],4:['t4','c4'],5:['t5','c5'],6:['t6','c6'],7:['t7','c7']};
+  if(map[n]){
+    document.getElementById(map[n][1]).style.display='inline-block';
+    await type(map[n][0],texts['t'+n],25,map[n][1]);
+  }
+}
+
+window.onload=()=>{
+  type('h1',texts.h1,100).then(()=>{
+    setTimeout(()=>{type('h2',texts.h2,70).then(()=>{document.getElementById('b1').style.display='inline-block';});},300);
+  });
+};
+</script>
+</body>
+  </html>
